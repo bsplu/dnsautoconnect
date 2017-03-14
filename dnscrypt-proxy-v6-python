@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Setting
+
+# Set controller
+case "$1" in
+start)
+	echo "Start Pcap_DNSProxy service"
+	python2 /usr/local/bin/dnsconnect.py
+;;
+stop)
+	echo "Stop Pcap_DNSProxy service"
+	kill `/bin/ps -C dnscrypt-proxy | grep dnscrypt-proxy | awk -F ' ' '{print $1}'`
+;;
+status)
+	echo
+	/bin/ps -C dnscrypt-proxy
+	echo "DNSProxy is not running when PID is empty."
+;;
+*)
+	echo "Usage: PcapDNSProxyService {start|stop|force-reload|restart|status}"
+	exit 0
+;;
+esac
+exit 0
