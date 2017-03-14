@@ -19,16 +19,17 @@
   > $ sudo service dnscrypt-proxy-v6-python start
   
   出现success表示连接成功
+  
 3. 关闭dns
 
   > $ sudo service dnscrypt-proxy-v6-python stop
   
   *注意:这时仅断开了dns服务器,如果本机的dns服务器地址仍然是"127.0.0.1"和"::1"的话,可能会出现无法上网的情况*
   
- 4. dns是否连接查询
+4. dns是否连接查询
  
   > $ sudo service dnscrypt-proxy-v6-python status
   
- 5. 重新启动
+5. 重新启动
  当发现解析不了网址时,可能是dns服务器出现了问题,这时需要重启.
  先关闭,再打开即可.
